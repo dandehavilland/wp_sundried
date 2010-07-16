@@ -1,0 +1,26 @@
+/*
+Theme Name: wp_sundried
+Version: 0.1
+Author: Dan deHavilland
+Author URI: http://github.com/dandehavilland
+Tags: one-column, two-columns, three-columns, fixed-width, sticky-post, threaded-comments, microformats
+
+Copyright 2010 Dan deHavilland <http://github.com/dandehavilland> All rights reserved.
+wp_sundried is licensed under the terms of the GNU General Public License version 2.
+
+*/
+
+/* Reset Browser Defaults */
+@import url( assets/css/reset.css );
+
+/* Apply base theme styles and colors */
+@import url( assets/css/base.css );
+
+/* Basic 2 Column Layout */
+@import url( assets/layouts/2col-r.css );
+
+/* Stylistic CSS Styles */
+@import url( assets/css/screen.css );
+
+/* These empty css selectors are temporarily here for compatiability with the WordPress theme repository checklist. */
+.aligncenter {} .alignleft {} .alignright {} .wp-caption {} .wp-caption-text {}

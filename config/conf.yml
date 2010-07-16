@@ -1,0 +1,22 @@
+env:
+  paths:
+    assets: assets
+    scripts: assets/scripts
+    styles: assets/styles
+    images: assets/images
+    
+  core:
+    - hooks
+    - functions
+    - comments
+    - widgets
+  
+  # handle: {src, deps, version, in_footer}
+  scripts: 
+    hoverIntent: ~
+    supersubs: { src: "supersubs.js", deps: ["jQuery"] }
+    bigiframe: { src: "jquery.bgiframe.min.js", deps: ["jQuery"] }
+    superfish: { src: "superfish", deps: ["jQuery"] }
+    screen: { src: "screen", deps: ["jQuery"] }
+  
+  styles: ~
