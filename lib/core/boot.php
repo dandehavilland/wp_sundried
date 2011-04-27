@@ -17,9 +17,10 @@ define( 'WPS_CONF', TEMPLATEPATH . '/config/conf.yml' );
 class wp_sundried {
 	
 	public static $version = 0.1;
+	public static $config;
 	
 	/**
-	 * init() Initialisation method which calls all other methods in turn.
+	 * initialize() Initialisation method which calls all other methods in turn.
 	 *
 	 * @since 0.1
 	 */
@@ -44,17 +45,17 @@ class wp_sundried {
 	 * @since 0.1
 	 */
 	public static function config($base=null) {
-		if (!isset($this->config)) {
+		if (!isset(self::$config)) {
 			if (function_exists('syck_load'))
-				$this->config = syck_load();
+				self::$config = syck_load(file_get_contents(WPS_CONF));
 			else {
-				require( TEMPLATEPATH . '/core/spyc.php' );
-				$this->config = spyc_load(WPS_CONF);
+				require( TEMPLATEPATH . '/lib/core/spyc.php' );
+				self::$config = spyc_load(file_get_contents(WPS_CONF));
 			}
 		}
 		
-		if (!empty($base)) return $this->config[$base];
-		else return $this->config;
+		if (!empty($base)) return self::$config[$base];
+		else return self::$config;
 	}
 	
 	/**
@@ -63,12 +64,23 @@ class wp_sundried {
 	 * @since 0.1
 	 */
 	function environment() {
+
+		define('TEMPLATEURL', get_bloginfo('template_url'));
 		
 		define('WPS_LIB', TEMPLATEPATH . '/lib');
+		define('WPS_LIB_URL', TEMPLATEURL . '/lib');
+		
 		define('WPS_CORE', WPS_LIB . '/core');
-		define('WPS_EXT', WPS_EXT . '/ext');
+		
+		define('WPS_EXT', WPS_LIB . '/ext');
+		define('WPS_EXT_URL', WPS_LIB_URL . '/ext');
+		
 		define('WPS_PARTIALS', TEMPLATEPATH . '/partials' );
-		define('TEMPLATEURL', get_bloginfo('template_url'));
+		define('WPS_CUSTOM_TEMPLATES', WPS_LIB . '/templates');
+
+		
+		define('WPS_CACHE', TEMPLATEPATH . '/cache');
+		define('WPS_CACHE_URL', TEMPLATEURL . '/cache');
 		
 		$env_conf = wp_sundried::config('env');
 		
@@ -91,6 +103,7 @@ class wp_sundried {
 		require_once( WPS_CORE . '/functions.php' );
 		require_once( WPS_CORE . '/comments.php' );
 		require_once( WPS_CORE . '/widgets.php' );
+		require_once( WPS_CORE . '/base_classes.php' );
 		
 		do_action( 'wp_sundried_framework' );
 	}
@@ -101,7 +114,12 @@ class wp_sundried {
 	 * @since 0.1
 	 */
 	function extentions() {
-		include_all( WPS_EXT );
+		$env_config = wp_sundried::config('env');
+		if (isset($env_config['extensions']) && isset($env_config['extensions']['disabled'])) {
+			$exclude = $env_config['extensions']['disabled'];
+		} else $exclude = array();
+		
+		include_all( WPS_EXT, $exclude );
 	}
 	
 	/**
@@ -114,6 +132,9 @@ class wp_sundried {
 		add_filter( 'post_gallery', 'semantic_gallery' ); // stops [gallery] styles from being added to the page. making html invalid
 		add_filter( 'wp_page_menu', 'framework_menu_ulclass' ); // adds a .nav class to the ul wp_page_menu generates
 		add_action( 'init', 'framework_assets' ); // framework_assets() loads scripts and styles
+		add_editor_style();
+		add_theme_support('automatic-feed-links');
+		add_theme_support('post-thumbnails');
 	}
 	
 	/**
@@ -122,7 +143,6 @@ class wp_sundried {
 	 * @since 0.1
 	 */
 	function ready() {
-		if ( file_exists( WPS_ASSETS . '/custom-functions.php' ) ) include_once( WPS_ASSETS . '/custom-functions.php' ); // include custom-functions.php if that file exist
 		require_once( WPS_CORE . '/pluggable.php' ); // load pluggable functions
 		do_action( 'wp_sundried_init' ); // Available action: wp_sundried_init
 		register_widgets();

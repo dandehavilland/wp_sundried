@@ -35,7 +35,7 @@ function framework_assets() {
 			isset($params["deps"]) ? $params["deps"] : null,
 			isset($params["ver"]) ? $params["ver"] : null,
 			isset($params["in_footer"]) ? $params["in_footer"] : null
-		)
+		);
 	}
 }
 
@@ -216,26 +216,40 @@ function get_profile_uri( $echo = 1 ) {
 	if ( $echo ) echo $profile;
 	else return $profile;
 }
+
 /**
  * body_classes
  * 
  * @since 0.1
  */
 function body_classes() {
-	$class = array();
-	if (is_home()) $class[] = 'home';
-	if (is_page()) $class[] = 'page';
-	if (is_single()) $class[] = 'single';
-	if (is_archive()) $class[] = 'archive';
-	if (is_category()) {
-		$class[] = 'category';
-		$class[] = get_single_cat_title();
-	}
-	if (is_tag()) $class[] = 'tag';
-	if (is_date()) $class[] = 'date';
-	if (is_author()) $class[] = 'author';
+	$classes = array();
+	$check = array('home', 'page', 'single', 'archive', 'category', 'tag', 'date', 'author', '404');
 	
-	return join($class, ' ');
+	foreach ($check as $type)
+		if (call_user_func("is_".$type))
+			$classes[] = $type;
+	
+	return join($classes, ' ');
+}
+
+/**
+ * body_id
+ * 
+ * @since 0.1
+ */
+function body_id() {
+	global $post;
+	if (is_home()) $id = 'home'; 
+	else if (is_archive()) $id = 'archive';
+	else if (is_search()) $id = 'search';
+	else if (is_category() || is_single()) $id = strtolower(single_category());
+	else if (have_posts()) {
+		the_post();
+		$id = $post->post_name;
+		rewind_posts();
+	}
+	return $id;
 }
 
 ?>
