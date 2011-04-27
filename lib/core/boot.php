@@ -119,7 +119,7 @@ class wp_sundried {
 	/**
 	 * ready() includes user's theme.php if it exists, calls the wp_sundried_init action, includes all pluggable functions and registers widgets
 	 *
-	 * @since 0.2.3
+	 * @since 0.1
 	 */
 	function ready() {
 		if ( file_exists( WPS_ASSETS . '/custom-functions.php' ) ) include_once( WPS_ASSETS . '/custom-functions.php' ); // include custom-functions.php if that file exist
