@@ -12,4 +12,5 @@
 require_once( TEMPLATEPATH . '/lib/core/boot.php' );
 require_once( TEMPLATEPATH . '/assets/custom-functions.php' );
 wp_sundried::initialize();
+
 ?>

@@ -33,6 +33,14 @@ function my_custom_filter( $content ){
 add_filter( 'the_content', 'my_custom_filter' );
 and remove this line -> */
 
-
+add_filter('nav_menu_item_id', 'item_title_to_element_id', 10, 3);
+function item_title_to_element_id($id, $item, $args) {
+  if ($args->theme_location == "footer") {
+    $lower = strtolower($item->title);
+    $id = preg_replace('/[^a-z0-9]+/',"_", $lower);
+  }
+  
+  return $id;
+}
 
 ?>

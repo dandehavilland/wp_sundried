@@ -12,7 +12,7 @@
 /**
  * framework_entry_comments() - Displays the number of comments in current post enclosed in a link.
  *
- * @since 0.3
+ * @since 0.1
  */
 if ( ! function_exists( 'framework_entry_comments' ) ):
 	function framework_entry_comments() {
@@ -28,7 +28,7 @@ endif;
 /**
  * framework_comment_name() - short description
  *
- * @since 0.3
+ * @since 0.1
  */
 if ( ! function_exists( 'framework_comment_name' ) ):
 	function framework_comment_name() {
@@ -40,7 +40,7 @@ endif;
 /**
  * framework_comment_avatar() - short description
  *
- * @since 0.3
+ * @since 0.1
  */
 if ( ! function_exists( 'framework_comment_avatar' ) ):
 	function framework_comment_avatar( $avatar = true, $gravatar_size = 50 ) {
@@ -72,7 +72,7 @@ endif;
 /**
  * framework_entry_time() - Displays the current post time
  *
- * @since 0.3
+ * @since 0.1
  */
 if ( ! function_exists( 'framework_entry_time' ) ):
 	function framework_entry_time() {
@@ -83,7 +83,7 @@ endif;
 /**
  * framework_comment_date() - short description
  *
- * @since 0.3.1
+ * @since 0.1
  */
 if ( ! function_exists( 'framework_comment_date' ) ):
 	function framework_comment_date() {
@@ -98,7 +98,7 @@ endif;
 /**
  * framework_comment_time() - short description
  *
- * @since 0.3.1
+ * @since 0.1
  */
 if ( ! function_exists( 'framework_comment_time' ) ):
 	function framework_comment_time() {
@@ -112,7 +112,7 @@ endif;
 /**
  * framework_comment_link() - short description
  *
- * @since 0.3.1
+ * @since 0.1
  */
 if ( ! function_exists( 'framework_comment_link' ) ):
 	function framework_comment_link() {
@@ -127,7 +127,7 @@ endif;
 /**
  * framework_comment_edit() - short description
  *
- * @since 0.3.1
+ * @since 0.1
  */
 if ( ! function_exists( 'framework_comment_edit' ) ):
 	function framework_comment_edit() {

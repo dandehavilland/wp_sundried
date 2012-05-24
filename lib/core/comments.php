@@ -9,7 +9,7 @@
 /**
  * framework_discussion_title()
  *
- * @since 0.3
+ * @since 0.1
  * @needsdoc
  * @filter framework_many_comments, framework_no_comments, framework_one_comment, framework_comments_number
  */
@@ -59,7 +59,7 @@ function framework_discussion_title( $type = NULL, $echo = true ) {
 /**
  * framework_discussion_rss()
  *
- * @since 0.3
+ * @since 0.1
  * @needsdoc
  */
 function framework_discussion_rss() {
@@ -72,7 +72,7 @@ function framework_discussion_rss() {
 /**
  * framework_count()
  *
- * @since 0.3
+ * @since 0.1
  * @needsdoc
  */
 function framework_count( $type = NULL, $echo = true ) {
@@ -95,7 +95,7 @@ function framework_count( $type = NULL, $echo = true ) {
 /**
  * framework_comment_author() short description
  *
- * @since 0.3
+ * @since 0.1
  * @todo needs filter
  */
 function framework_comment_author( $meta_format = '%avatar% %name%' ) {
@@ -134,7 +134,7 @@ function framework_comment_author( $meta_format = '%avatar% %name%' ) {
 /**
  * framework_comment_meta() short description
  *
- * @since 0.3.1
+ * @since 0.1
  * @todo needs filter
  */
 function framework_comment_meta( $meta_format = '%date% at %time% | %link% %edit%' ) {	
@@ -145,9 +145,9 @@ function framework_comment_meta( $meta_format = '%date% at %time% | %link% %edit
 	if ( strpos( $meta_format, '%' ) === false ) {
 		echo $meta_format;
 	} else {
-		$open  = '<!--BEGIN .comment-meta-->' . "\n";
-		$open .= '<div class="comment-meta">' . "\n";
-		$close  = "\n" . '<!--END .comment-meta-->' . "\n";
+		$open  = '<!--BEGIN .comment_meta-->' . "\n";
+		$open .= '<div class="comment_meta">' . "\n";
+		$close  = "\n" . '<!--END .comment_meta-->' . "\n";
 		$close .= '</div>' . "\n";
 		
 		// separate the %keywords%
@@ -185,7 +185,7 @@ function framework_comment_meta( $meta_format = '%date% at %time% | %link% %edit
 /**
  * framework_comment_text() short description
  *
- * @since 0.3.1
+ * @since 0.1
  */
 function framework_comment_text() {
 	echo "\n<!--BEGIN .comment-content-->\n";
@@ -208,7 +208,7 @@ function framework_comment_moderation() {
 /**
  * framework_comment_navigation() paged comments
  *
- * @since 0.3
+ * @since 0.1
  * @needsdoc
  * @todo add html comments?
  */
@@ -239,7 +239,7 @@ function framework_comment_navigation() {
 /**
  * framework_comments_callback() recreate the comment list
  *
- * @since 0.3
+ * @since 0.1
  * @needsdoc
  */
 function framework_comments_callback( $comment, $args, $depth ) {	
@@ -248,8 +248,7 @@ function framework_comments_callback( $comment, $args, $depth ) {
 	$tag = apply_filters( 'framework_comments_list_tag', (string) 'li' ); // Available filter: framework_comments_list_tag
 	?>
     
-    <!--BEING .comment-->
-	<<?php echo $tag; ?> class="<?php semantic_comments(); ?>" id="comment-<?php echo comment_ID(); ?>">
+	<<?php echo $tag; ?> class="comment" id="comment_<?php echo comment_ID(); ?>">
     	<?php framework_hook_comments(); ?>
 	<?php
 }
@@ -257,7 +256,7 @@ function framework_comments_callback( $comment, $args, $depth ) {
 /**
  * framework_comments_endcallback() close the comment list
  *
- * @since 0.3
+ * @since 0.1
  * @needsdoc
  * @todo needs filter
  */
@@ -271,7 +270,7 @@ function framework_comments_endcallback(){
 /**
  * framework_pings_callback() recreate the comment list
  *
- * @since 0.3
+ * @since 0.1
  * @needsdoc
  */
 function framework_pings_callback( $comment, $args, $depth ) {
@@ -282,8 +281,7 @@ function framework_pings_callback( $comment, $args, $depth ) {
 	$when = apply_filters( 'framework_pings_callback_when', (string) ' at ' ); // Available filter: framework_pings_callback_time
 	?>
     <?php if ( $comment->comment_approved == '0' ) echo '<p class="ping-unapproved moderation alert">Your trackback is awaiting moderation.</p>\n'; ?>
-    <!--BEING .pings-->
-	<<?php echo $tag; ?> class="<?php echo semantic_comments(); ?>" id="ping-<?php echo $comment->comment_ID; ?>">
+	<<?php echo $tag; ?> class="ping" id="ping_<?php echo $comment->comment_ID; ?>">
 		<?php echo $byline; framework_comment_author( false ); echo $time; ?><a class="trackback-time" href="<?php comment_link(); ?>"><?php comment_date(); echo $when; comment_time(); ?></a>
 	<?php
 }
@@ -291,7 +289,7 @@ function framework_pings_callback( $comment, $args, $depth ) {
 /**
  * framework_pings_endcallback() close the comment list
  *
- * @since 0.3
+ * @since 0.1
  * @needsdoc
  */
 function framework_pings_endcallback(){

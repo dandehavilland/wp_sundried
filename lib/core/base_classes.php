@@ -9,8 +9,10 @@ class WPS_UIExtension  {
 	var $styles = array();
 	
 	function __construct() {
-		add_action('init', array(&$this, 'enqueue_scripts'));
-		add_action('init', array(&$this, 'enqueue_styles'));
+		if (!is_admin()) {
+			add_action('init', array(&$this, 'enqueue_scripts'));
+			add_action('init', array(&$this, 'enqueue_styles'));
+		}
 	}
 	
 	function enqueue_scripts() {
@@ -59,30 +61,29 @@ class WPS_PostMetaBox {
 		$this->nonce_name = "{$this->meta_key}_nonce";
 		
 		add_action('admin_menu', array(&$this, 'register_meta_box'));
-		add_action('save_post', array(&$this, 'update_product_meta'));
+		add_action('save_post', array(&$this, 'update_meta'));
 	}
 	
 	function register_meta_box() {
 		add_meta_box(
 			"{$this->meta_key}div", 
 			$this->box_title, 
-			array(&$this, 'edit_product_meta'), 
+			array(&$this, 'edit_meta'), 
 			$this->post_type,
 			$this->position,
 			$this->priority);
 	}
 	
-	function edit_product_meta() {
+	function edit_meta() {
 		global $post;
 		$data = get_post_meta($post->ID, $this->meta_key, true);
 		include("{$this->views_root}/{$this->context}/{$this->sub_context}/{$this->edit_include}");
 	}
 	
-	function update_product_meta($post_id) {
+	function update_meta($post_id) {
 		if ( !wp_verify_nonce( $_POST[$this->nonce_name], $this->nonce_name)){
 			return $post_id;
 		}
-			
 		
 		if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) 
 			return $post_id;
@@ -93,5 +94,44 @@ class WPS_PostMetaBox {
 	}
 }
 
+
+/**
+ * Widget Template
+ * @package wp_sundried
+ * @author Dan de Havilland
+ */
+class WPS_Widget extends WP_Widget {
+	
+	var $name = "Unnamed Widget";
+	var $base_path = "";
+	var $meta_key;
+	var $context, $sub_context;
+	var $views_root;
+	var $edit_include = 'edit.php';
+	var $show_include = 'show.php';
+	
+	
+	function WPS_Widget() {
+		parent::WP_Widget(false, $this->name);
+	}
+	
+	function widget($args, $instance) {
+		global $post;
+		extract( $args );
+		$title = apply_filters('widget_title', $instance['title']);
+		include("{$this->base_path}/{$this->views_root}/{$this->context}/{$this->sub_context}/{$this->show_include}");
+	}
+	
+	function update($new_instance, $old_instance) {
+		$instance = $old_instance;
+		$instance['title'] = strip_tags($new_instance['title']);
+		return $instance;
+	}
+	
+	function form($instance) {
+		$title = esc_attr($instance['title']);
+		include("{$this->base_path}/{$this->views_root}/{$this->context}/{$this->sub_context}/{$this->edit_include}");
+	}
+}
 
 ?>

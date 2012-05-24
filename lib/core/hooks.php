@@ -11,7 +11,7 @@
  *
  * Long description.
  *
- * @since 0.3
+ * @since 0.1
  * @hook action framework_hook_before_html
  */
 function framework_hook_before_html() {
@@ -23,7 +23,7 @@ function framework_hook_before_html() {
  *
  * Long description.
  *
- * @since 0.3
+ * @since 0.1
  * @hook action framework_hook_after_html
  */
 function framework_hook_after_html() {
@@ -35,7 +35,7 @@ function framework_hook_after_html() {
  *
  * Long description.
  *
- * @since 0.3
+ * @since 0.1
  * @hook action framework_hook_loop
  */
 function framework_hook_comments( $callback = array('framework_comment_author', 'framework_comment_meta', 'framework_comment_moderation', 'framework_comment_text', 'framework_comment_reply' ) ) {

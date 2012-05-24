@@ -13,12 +13,6 @@ wp_sundried is licensed under the terms of the GNU General Public License versio
 /* Reset Browser Defaults */
 @import url( assets/css/reset.css );
 
-/* Apply base theme styles and colors */
-@import url( assets/css/base.css );
-
-/* Basic 2 Column Layout */
-@import url( assets/layouts/2col-r.css );
-
 /* Stylistic CSS Styles */
 @import url( assets/css/screen.css );
 

@@ -14,7 +14,9 @@
 	
 	<link rel="shortcut icon" href="<?php echo WPS_IMAGES_URL . '/favicon.ico'; ?>" />
 	<link rel="apple-touch-icon" href="<?php echo WPS_IMAGES_URL . '/iphone.png'; ?>" />
-
+  
+  <?php wp_head(); ?>
+  
 	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" type="text/css" media="screen, projection" />
 	<!--[if IE]>
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory');?>/assets/styles/styles.ie_all.css" type="text/css" media="screen" charset="utf-8" />
@@ -37,7 +39,7 @@
 	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="<?php bloginfo( 'atom_url' ); ?>" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
-	<?php wp_head(); ?>
+	
 </head>
 
 
@@ -46,8 +48,22 @@
 		
 		<div class="header">
 			<h1 class="masthead"><a href="/"><span><?= get_bloginfo( 'name' ); ?></span></a></h1>
+			<span class="tagline">
+			  <span class="first">Lorem ipsum dolor sit amet, xcsggh</span>
+			  <span class="second">consectetur adipiscing.</span>
+			</span>
+			
+			<div class="account_navigation">
+			  <ul>
+			   <li><a href="#">Log in</a></li>
+			   <li><a href="#">View bag</a></li>
+			  </ul>
+			</div>
+			
 			<form class="search_form" action="/" method="get" accept-charset="utf-8">
-				<input class="search" type="text" name="s" value="<?=get_query_var('s')?>" placeholder="search" />
+			  <label for="search_input">Search</label>
+				<input id="search_input" class="search" type="text" name="s" value="<?=get_query_var('s')?>" />
+				<input class="submit" type="submit" value="Go" />
 			</form>
 		</div>
 		
@@ -56,3 +72,5 @@
 		</div>
 		
 		<div class="content_wrapper">
+      <div class="head tag_container"></div>
+      <div class="middle tag_container"></div>

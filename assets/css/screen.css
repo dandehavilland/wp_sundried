@@ -4,5 +4,393 @@
  * @package wp_sundried
  * @subpackage Media
  */
+@font-face {
+  font-family: "Neutraface Slab Text Book";
+  font-weight: 100;
+  src: url(../fonts/neutraface-slab-text-book.eot);
+  src: url(../fonts/neutrasaface-slab-text-book.eot?#iehack) format("eot"), url(../fonts/neutraface-slab-text-book.otf) format("opentype"); }
 
+body {
+  background: #abaaa8 url(../images/background-clouds.png) top center;
+  color: black;
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
+a {
+  color: black;
+  text-decoration: none; }
+  a:hover, a:active, a.current {
+    color: white; }
+
+.container {
+  position: relative;
+  padding: 29px 54px;
+  margin: 0 auto;
+  width: 850px;
+  text-align: left; }
+  .container .header {
+    position: relative;
+    height: 80px; }
+    .container .header .masthead a {
+      display: block;
+      width: 347px;
+      height: 47px;
+      background: transparent url(../images/masthead.png) no-repeat top left; }
+      .container .header .masthead a span {
+        display: none; }
+    .container .header .tagline {
+      display: block;
+      position: relative;
+      left: 43px;
+      height: 21px;
+      width: 307px;
+      background: transparent url(../images/banner.png) no-repeat top left;
+      font-size: 9px;
+      font-family: Futura, "Helvetica Neue", Helvetica, Arial, sans-serif; }
+      .container .header .tagline span {
+        position: relative; }
+        .container .header .tagline span.first {
+          left: 25px;
+          top: 1px; }
+        .container .header .tagline span.second {
+          left: 55px;
+          top: 8px; }
+    .container .header .account_navigation {
+      position: absolute;
+      top: 49px;
+      left: 350px; }
+      .container .header .account_navigation ul {
+        list-style-type: none; }
+        .container .header .account_navigation ul li {
+          display: block;
+          float: left;
+          margin-left: 17px; }
+          .container .header .account_navigation ul li a {
+            font-size: 11px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-transform: uppercase;
+            font-weight: bold; }
+    .container .header .search_form {
+      position: absolute;
+      top: 49px;
+      right: 150px; }
+      .container .header .search_form label {
+        font-size: 11px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-transform: uppercase;
+        font-weight: bold; }
+      .container .header .search_form input {
+        border: none; }
+        .container .header .search_form input.search {
+          font-size: 9px;
+          height: 13px;
+          width: 88px;
+          padding-right: 12px;
+          background: transparent url(../images/searchfield.png) no-repeat top left; }
+        .container .header .search_form input.submit {
+          position: relative;
+          left: -12px;
+          top: -1px;
+          font-size: 11px;
+          color: #fff;
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          text-transform: uppercase;
+          font-weight: bold;
+          background: none;
+          cursor: pointer; }
+  .container .navigation {
+    position: absolute;
+    left: 54px;
+    right: 115px;
+    padding-left: 40px;
+    z-index: 1;
+    border-bottom: 1px solid white; }
+    .container .navigation ul {
+      list-style-type: none; }
+      .container .navigation ul li {
+        float: left;
+        display: block; }
+        .container .navigation ul li a {
+          display: block;
+          padding: 5px 22px 0;
+          border-right: 1px solid white;
+          text-transform: uppercase;
+          font: 12px/35px "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-weight: bold; }
+        .container .navigation ul li:last-child a {
+          border-right: none; }
+  .container .content_wrapper {
+    position: relative;
+    min-height: 352px;
+    width: 847px;
+    padding-top: 42px;
+    padding-bottom: 30px; }
+  .container .tag_container {
+    position: absolute;
+    width: 847px;
+    z-index: -1;
+    background: transparent url(../images/tag.png) no-repeat top left; }
+    .container .tag_container.head {
+      top: 0;
+      height: 73px; }
+    .container .tag_container.middle {
+      top: 73px;
+      background: #d2d4d4;
+      bottom: 351px; }
+    .container .tag_container.foot {
+      bottom: 0;
+      height: 351px;
+      background-position: bottom left; }
+  .container .mailer_container {
+    width: 72px;
+    height: 262px;
+    position: absolute;
+    bottom: -39px;
+    right: -35px;
+    background: transparent url(../images/string.png) no-repeat top left; }
+    .container .mailer_container .mailer_form {
+      width: 98px;
+      height: 99px;
+      bottom: -15px;
+      position: absolute;
+      left: -29px;
+      background: transparent url(../images/mailing-star.png) no-repeat top left; }
+      .container .mailer_container .mailer_form label, .container .mailer_container .mailer_form .submit {
+        font-size: 9px;
+        font-family: "Neutraface Slab Text Book";
+        font-weight: bold;
+        position: absolute;
+        top: 22px;
+        width: 53px;
+        text-align: center;
+        left: 21px; }
+      .container .mailer_container .mailer_form .submit {
+        background: none;
+        border: none;
+        top: 66px;
+        cursor: pointer; }
+      .container .mailer_container .mailer_form .email {
+        position: absolute;
+        top: 45px;
+        left: 12px;
+        width: 63px;
+        border: none;
+        background: none; }
+  .container .footer {
+    position: relative;
+    width: 713px;
+    height: 33px;
+    top: 18px;
+    background: transparent url(../images/footer.png) no-repeat top left; }
+    .container .footer ul.menu {
+      list-style-type: none;
+      position: relative;
+      left: 95px; }
+      .container .footer ul.menu li {
+        float: left;
+        display: block; }
+        .container .footer ul.menu li a {
+          display: block;
+          position: relative;
+          padding: 11px 22px 0;
+          margin-right: 45px;
+          text-transform: uppercase;
+          font-size: 8px;
+          color: black;
+          font-weight: bolder; }
+          .container .footer ul.menu li a:before {
+            position: absolute;
+            left: -5px;
+            top: 8px; }
+        .container .footer ul.menu li#blog a {
+          margin-right: 81px; }
+          .container .footer ul.menu li#blog a:before {
+            position: absolute;
+            right: -5px;
+            top: 8px;
+            content: url(../images/footer-blog.png); }
+        .container .footer ul.menu li#shipping_terms a {
+          width: 35px;
+          padding-top: 6px; }
+          .container .footer ul.menu li#shipping_terms a:before {
+            top: 5px;
+            content: url(../images/footer-shipping.png); }
+        .container .footer ul.menu li#contact a:before {
+          content: url(../images/footer-contact.png); }
+        .container .footer ul.menu li#about_us a:before {
+          top: 6px;
+          content: url(../images/footer-about.png); }
+
+.primary {
+  margin-top: 20px;
+  margin-left: 61px; }
+  .primary h2 {
+    color: white;
+    font-size: 23px;
+    line-height: 36px;
+    font-family: "Neutraface Slab Text Book"; }
+
+body.page .primary {
+  width: 238px; }
+  body.page .primary h2.entry_title {
+    border-bottom: 1px solid white;
+    margin-bottom: 7px; }
+    body.page .primary h2.entry_title:after {
+      display: block;
+      float: right; }
+  body.page .primary .entry_content {
+    font-family: "Neutraface Slab Text Book";
+    font-size: 12px;
+    min-height: 120px; }
+    body.page .primary .entry_content p {
+      padding: 0.75em 1em; }
+      body.page .primary .entry_content p.pricedisplay {
+        padding: 0; }
+body.page#products-page h2.entry_title, body.page#all-products h2.entry_title {
+  margin-bottom: 0;
+  border-bottom: 0; }
+body.page .two-column.primary {
+  width: 622px; }
+  body.page .two-column.primary .entry_content {
+    background: transparent url(../images/content-background-two-columns.png) repeat-y top left;
+    padding-bottom: 20px;
+    min-height: 0;
+    width: 632px; }
+    body.page .two-column.primary .entry_content .column {
+      float: left;
+      width: 305px;
+      margin-right: 10px; }
+  body.page .two-column.primary:after {
+    content: url(../images/content-foot-two-columns.png); }
+body.page .aqua.primary:after {
+  content: url(../images/content-foot-aqua.png); }
+body.page .aqua.primary .entry_content {
+  background: #9fe6d9; }
+body.page .peach.primary:after {
+  content: url(../images/content-foot-peach.png); }
+body.page .peach.primary .entry_content {
+  background: #ffb488; }
+body.page#contact .entry_title:after {
+  content: url(../images/footer-contact-reversed.png); }
+body.page#about-us .entry_title:after {
+  content: url(../images/footer-about.png); }
+body.page#shipping-terms .entry_title:after {
+  content: url(../images/footer-shipping.png); }
+
+body.single .entry_title a {
+  color: #fff; }
+  body.single .entry_title a:hover {
+    color: #000; }
+
+#grid_view_products_page_container .wpsc_page_numbers_top {
+  position: absolute;
+  top: -27px;
+  right: 48px; }
+  #grid_view_products_page_container .wpsc_page_numbers_top span.current,
+  #grid_view_products_page_container .wpsc_page_numbers_top a, #grid_view_products_page_container .wpsc_page_numbers_top a:link, #grid_view_products_page_container .wpsc_page_numbers_top a:visited {
+    position: relative;
+    padding: 5px 8px;
+    background: transparent none;
+    border: none;
+    color: black;
+    font-size: 13px;
+    font-family: "Neutraface Slab Text Book";
+    font-weight: bold;
+    text-transform: uppercase;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    margin-right: 5px; }
+    #grid_view_products_page_container .wpsc_page_numbers_top span.current[title='Last Page'], #grid_view_products_page_container .wpsc_page_numbers_top span.current[title='First Page'],
+    #grid_view_products_page_container .wpsc_page_numbers_top a[title='Last Page'],
+    #grid_view_products_page_container .wpsc_page_numbers_top a[title='First Page'], #grid_view_products_page_container .wpsc_page_numbers_top a:link[title='Last Page'], #grid_view_products_page_container .wpsc_page_numbers_top a:link[title='First Page'], #grid_view_products_page_container .wpsc_page_numbers_top a:visited[title='Last Page'], #grid_view_products_page_container .wpsc_page_numbers_top a:visited[title='First Page'] {
+      display: none; }
+    #grid_view_products_page_container .wpsc_page_numbers_top span.current[title='Next Page'],
+    #grid_view_products_page_container .wpsc_page_numbers_top a[title='Next Page'], #grid_view_products_page_container .wpsc_page_numbers_top a:link[title='Next Page'], #grid_view_products_page_container .wpsc_page_numbers_top a:visited[title='Next Page'] {
+      background: transparent url(../images/arrow-right.png) no-repeat right 6px;
+      padding-right: 15px; }
+    #grid_view_products_page_container .wpsc_page_numbers_top span.current[title='Previous Page'],
+    #grid_view_products_page_container .wpsc_page_numbers_top a[title='Previous Page'], #grid_view_products_page_container .wpsc_page_numbers_top a:link[title='Previous Page'], #grid_view_products_page_container .wpsc_page_numbers_top a:visited[title='Previous Page'] {
+      background: transparent url(../images/arrow-left.png) no-repeat left 6px;
+      padding-left: 15px; }
+
+.entry_content #grid_view_products_page_container,
+.entry_content #content #grid_view_products_page_container,
+.entry_content #content #list_view_products_page_container {
+  width: 682px; }
+.entry_content .product_grid_display .product_grid_item .item_image,
+.entry_content .product_grid_display .product_grid_item .item_no_image {
+  margin-bottom: 5px; }
+.entry_content .product_grid_display .product_grid_item {
+  margin: 0;
+  width: 174px;
+  height: 143px;
+  margin: 0 53px 15px 0;
+  padding: 0;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none; }
+  .entry_content .product_grid_display .product_grid_item h2.prodtitle {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    float: left; }
+    .entry_content .product_grid_display .product_grid_item h2.prodtitle a {
+      color: black; }
+  .entry_content .product_grid_display .product_grid_item .price_container {
+    float: right;
+    color: black;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px; }
+.entry_content ul {
+  padding: 1em 0 0 20px; }
+.entry_content .product_description h2 {
+  font: 24px/1.1em "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px; }
+
+.product_form {
+  font-size: 10px;
+  text-transform: uppercase; }
+  .product_form table {
+    border-top: 1px solid white;
+    border-left: 1px solid white; }
+    .product_form table td, .product_form table th {
+      border-right: 1px solid white;
+      border-bottom: 1px solid white;
+      height: 18px;
+      padding: 3px; }
+    .product_form table [type='file'] {
+      width: 226px; }
+
+.pricedisplay {
+  font-size: 16px;
+  font-weight: bold; }
+  .pricedisplay del {
+    color: #600; }
+  .pricedisplay.saved {
+    display: block;
+    font-size: 10px;
+    clear: left;
+    color: #060; }
+    .pricedisplay.saved .pricedisplay {
+      font-size: 10px; }
+
+.features {
+  padding: 30px 60px; }
+  .features .feature a {
+    display: block;
+    position: relative;
+    font-size: 0; }
+    .features .feature a img.overlay {
+      position: absolute;
+      top: 0;
+      left: 0; }
+    .features .feature a .text {
+      position: absolute;
+      font-size: 17px;
+      font-family: "Neutraface Slab Text Book"; }

@@ -11,7 +11,7 @@
  *
  * @link http://codex.wordpress.org/WordPress_Widgets_Api/register_sidebar
  *
- * @since 0.3
+ * @since 0.1
  */
 function register_widgets() {
 	$defaults = array(
@@ -28,7 +28,7 @@ function register_widgets() {
 /**
  * widget_area_active() Checks to see if a widget area is active based on ID
  *
- * @since 0.4
+ * @since 0.1
  */
 function widget_area_active( $index ) {
 	global $wp_registered_sidebars;
@@ -42,7 +42,7 @@ function widget_area_active( $index ) {
 /**
  * framework_widget_area() Get's Widget Area if widgets are active in that spot
  *
- * @since 0.4
+ * @since 0.1
  */
 function framework_widget_area( $name = false ) {
 	if ( !isset($name) ) {
