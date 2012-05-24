@@ -1,0 +1,633 @@
+/**
+ * CSS - Stylistic CSS Styles
+ *
+ * @package wp_sundried
+ * @subpackage Media
+ */
+
+@import 'bourbon/bourbon';
+
+
+// fonts
+@font-face {
+ font-family: "Neutraface Slab Text Book";
+ font-weight: 100;
+ src: url(../fonts/neutraface-slab-text-book.eot);
+ src: url(../fonts/neutrasaface-slab-text-book.eot?#iehack) format("eot"), url(../fonts/neutraface-slab-text-book.otf) format("opentype"); 
+}
+
+$neutraface: "Neutraface Slab Text Book";
+
+
+// Background
+$background_grey: #abaaa8;
+
+// Text
+$text_white: #ffffff;
+$text_black: #000000;
+
+// Masthead colours
+$masthead_white: #ffffff;
+$masthead_grey: #dbdbdb;
+$masthead_green: #9fe5da;
+
+// Tag colours
+$tag_grey: #d2d4d4;
+$tag_rope_orange: #feb487;
+$tag_rope_white: #fdfdfd;
+
+
+$corner_grey: #919392;
+
+// Pencil colours
+$pencil_grey: #c6c7c9;
+$pencil_white: #ffffff;
+
+$aqua: #9fe6d9;
+$peach: #ffb488;
+
+$width: 960px;
+$height: 588px;
+
+//$product_thumb_width: ;
+
+
+body {
+  background: $background_grey url(../images/background-clouds.png) top center;
+  color: $text_black;
+  text-align: center;
+  font-family: $helvetica;
+}
+
+a {
+  color: $text_black;
+  text-decoration: none;
+  &:hover, &:active, &.current {
+    color: $text_white;
+  }
+}
+
+.container {
+  position: relative;
+  padding: 29px 54px;
+  margin: 0 auto;
+  width: 850px;
+  text-align: left;
+  
+  // header
+  .header {
+    position: relative;
+    height: 80px;
+    
+    .masthead {
+      a {
+        display: block;
+        width: 347px;
+        height: 47px;
+        background: transparent url(../images/masthead.png) no-repeat top left;
+        
+        span {
+          display: none;
+        }
+      }
+    }
+    
+    .tagline {
+      display: block;
+      position: relative;
+      left: 43px;
+      height: 21px;
+      width: 307px;
+      background: transparent url(../images/banner.png) no-repeat top left;
+      font-size: 9px;
+      font-family: Futura, $helvetica;
+      
+      span { 
+        position: relative;
+        &.first {
+          left: 25px;
+          top: 1px;
+        }
+        &.second {
+          left: 55px;
+          top: 8px;
+        }
+      }
+    }
+    
+    .account_navigation {
+      position: absolute;
+      top: 49px;
+      left: 350px;
+      
+      ul {
+        list-style-type: none;
+        li {
+          display: block;
+          float: left;
+          margin-left: 17px;
+          a {
+            font-size: 11px;
+            font-family: $neutraface;
+            text-transform: uppercase;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    
+    
+    .search_form {
+      position: absolute;
+      top: 49px;
+      right: 150px;
+      
+      label {
+        font-size: 11px;
+        font-family: $neutraface;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+      
+      input {
+        border: none;
+        &.search {
+          font-size: 9px;
+          height: 13px;
+          width: 88px;
+          padding-right: 12px;
+          background: transparent url(../images/searchfield.png) no-repeat top left;
+        }
+        &.submit {
+          position: relative;
+          left: -12px;
+          top: -1px;
+          font-size: 11px;
+          color: #fff;
+          font-family: $neutraface;
+          text-transform: uppercase;
+          font-weight: bold;
+          background: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  // navigation
+  .navigation {
+    position: absolute;
+    left: 54px;
+    right: 115px;
+    padding-left: 40px;
+    z-index: 1;
+    border-bottom: 1px solid $pencil_white;
+    
+    ul {
+      list-style-type: none;
+      li {
+        float: left;
+        display: block;
+        a {
+          display: block;
+          padding: 5px 22px 0;
+          border-right: 1px solid $pencil_white;
+          text-transform: uppercase;
+          font: 12px/35px $neutraface;
+          font-weight: bold;
+        }
+        &:last-child {
+          a {
+            border-right: none;
+          }
+        }
+      }
+    }
+  }
+
+  // content
+  .content_wrapper {
+    position: relative;
+    min-height: 352px;
+    width: 847px;
+    padding-top: 42px;
+    padding-bottom: 30px;
+  }
+  
+  .tag_container {
+    position: absolute;
+    width: 847px;
+    z-index: -1;
+    background: transparent url(../images/tag.png) no-repeat top left;
+    &.head {
+      top: 0;
+      height: 73px;
+    }
+    &.middle {
+      top: 73px;
+      background: $tag_grey;
+      bottom: 351px;
+    }
+    &.foot {
+      bottom: 0;
+      height: 351px;
+      background-position: bottom left;
+    }
+  }
+  
+  .mailer_container {
+    width: 72px;
+    height: 262px;
+    position: absolute;
+    bottom: -39px;
+    right: -35px;
+    background: transparent url(../images/string.png) no-repeat top left;
+    
+    .mailer_form {
+      width: 98px;
+      height: 99px;
+      bottom: -15px;
+      position: absolute;
+      left: -29px;
+      background: transparent url(../images/mailing-star.png) no-repeat top left;
+      
+      label, .submit { 
+        font-size: 9px;
+        font-family: $neutraface;
+        font-weight: bold;
+        position: absolute;
+        top: 22px;
+        width: 53px;
+        text-align: center;
+        left: 21px;
+      }
+      
+      .submit {
+        background: none;
+        border: none;
+        top: 66px;
+        cursor: pointer;
+      }
+
+      .email {
+        position: absolute;
+        top: 45px;
+        left: 12px;
+        width: 63px;
+        border: none;
+        background: none;
+      }
+      
+     
+      
+    }
+  }
+  
+  .footer {
+    position: relative;
+    width: 713px;
+    height: 33px;
+    top: 18px;
+    
+    background: transparent url(../images/footer.png) no-repeat top left;
+    
+    ul.menu {
+      list-style-type: none;
+      position: relative;
+      left: 95px;
+      
+      li {
+        float: left;
+        display: block;
+        a {
+          display: block;
+          position: relative;
+          padding: 11px 22px 0;
+          margin-right: 45px;
+          text-transform: uppercase;
+          font-size: 8px;
+          color: $text_black;
+          font-weight: bolder;
+          
+          &:before {
+            position: absolute;
+            left: -5px;
+            top: 8px;
+          }
+        }
+        
+        &#blog a {
+          margin-right: 81px;
+          &:after {
+            position: absolute;
+            right: -5px;
+            top: 8px;
+            content: url(../images/footer-blog.png);
+          }
+        }
+        &#shipping_terms {
+          a {
+            width: 35px;
+            padding-top: 6px;
+            &:before {
+              top: 5px;
+              content: url(../images/footer-shipping.png);
+            }
+          }
+        }
+        &#contact a:before {
+          content: url(../images/footer-contact.png);
+        }
+        &#about_us a{
+          &:before {
+            top: 6px;
+            content: url(../images/footer-about.png);
+          }
+        }
+      }
+    }
+  }
+}
+
+.primary {
+  margin-top: 20px;
+  margin-left: 61px;
+  h2 {
+    color: $text_white;
+    font-size: 23px;
+    line-height: 36px;
+    font-family: $neutraface;
+  }
+}
+
+
+
+
+body.page {
+  .primary {
+    width: 238px;
+    
+    h2.entry_title {
+      border-bottom: 1px solid white;
+      margin-bottom: 7px;
+      &:after {
+        display: block;
+        float: right;
+      }
+    }
+    
+    .entry_content {
+      font-family: $neutraface;
+      font-size: 12px;
+      min-height: 120px;
+      
+      p {
+        padding: 0.75em 1em;
+        
+        &.pricedisplay {
+          padding: 0;
+        }
+      }
+    }
+  }
+  
+  &#products-page, &#all-products {
+    h2.entry_title {
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+  }
+  
+  .two-column.primary {
+    width: 622px;
+    
+    .entry_content {
+      background: transparent url(../images/content-background-two-columns.png) repeat-y top left;
+      padding-bottom: 20px;
+      min-height: 0;
+      width: 632px;
+      
+      .column {
+        float: left;
+        width: 305px;
+        margin-right: 10px;
+      }
+      
+    }
+    &:after {
+      content: url(../images/content-foot-two-columns.png);
+    }
+  }
+  
+  .aqua.primary {
+    &:after {
+      content: url(../images/content-foot-aqua.png);
+    }
+    .entry_content {
+      background: $aqua;
+    }
+  }
+
+  .peach.primary {
+    &:after {
+      content: url(../images/content-foot-peach.png);
+    }
+    .entry_content {
+      background: $peach;
+    }
+  }
+  
+  &#contact {
+    .entry_title:after {
+      content: url(../images/footer-contact-reversed.png);
+    }
+  }
+  
+  &#about-us {
+    .entry_title:after {
+      content: url(../images/footer-about.png);
+    }
+  }
+  
+  &#shipping-terms {
+    .entry_title:after {
+      content: url(../images/footer-shipping.png);
+    }
+  }
+}
+
+body.single {
+  .entry_title {
+    a {
+      color: #fff;
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+}
+
+#grid_view_products_page_container {
+  .wpsc_page_numbers_top {
+    
+    position: absolute;
+    top: -27px;
+    right: 48px;
+    
+    span.current,
+    a, a:link, a:visited {
+      position: relative;
+      padding: 5px 8px;
+      background: transparent none;
+      border: none;
+      color: $text_black;
+      font-size: 13px;
+      font-family: $neutraface;
+      font-weight: bold;
+      text-transform: uppercase;
+      
+      @include border-radius(0);
+      margin-right: 5px;
+      
+      &[title='Last Page'], &[title='First Page'] {
+        display: none;
+      }
+      
+      &[title='Next Page'] {
+        background: transparent url(../images/arrow-right.png) no-repeat right 6px;
+        padding-right: 15px;
+      }
+      
+      &[title='Previous Page'] {
+        background: transparent url(../images/arrow-left.png) no-repeat left 6px;
+        padding-left: 15px;
+      }
+    }
+  }
+}
+
+.entry_content {
+  
+  #grid_view_products_page_container, 
+  #content #grid_view_products_page_container, 
+  #content #list_view_products_page_container {
+    width: 682px;
+  }
+  .product_grid_display {
+    
+    .product_grid_item .item_image, 
+    .product_grid_item .item_no_image {
+      margin-bottom: 5px;
+    }
+    
+    .product_grid_item {
+      margin: 0;
+      width: 174px;
+      height: 143px;
+      margin: 0 53px 15px 0;
+      padding: 0;
+      box-shadow: none;
+      -moz-box-shadow: none;
+      -webkit-box-shadow: none;
+      
+
+      h2.prodtitle {
+        font-family: $helvetica;
+        font-size: 11px;
+        font-weight: bold;
+        float: left;
+        a {
+          color: $text_black;
+        }
+      }
+      .price_container {
+        float: right;
+        color: $text_black;
+        font-weight: bold;
+        font-family: $helvetica;
+        font-size: 11px;
+      }
+    }
+  }
+
+  ul {
+    padding: 1em 0 0 20px;
+  }
+  
+  .product_description {
+    h2 {
+      font: 24px/1.1em $helvetica;
+      font-weight: bold;
+      color: $text_black;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.product_form {
+  font-size: 10px;
+  text-transform: uppercase;
+  
+  table {
+    border-top: 1px solid $text_white;
+    border-left: 1px solid $text_white;
+    
+    td, th {
+      border-right: 1px solid $text_white;
+      border-bottom: 1px solid $text_white;
+      height: 18px;
+      padding: 3px;
+    }
+    
+    [type='file'] {
+      width: 226px
+    }
+  }
+}
+
+.pricedisplay {
+  font-size: 16px;
+  font-weight: bold;
+  
+  del {
+    color: #600;
+  }
+  
+  &.saved {
+    display: block;
+    font-size: 10px;
+    clear: left;
+    color: #060;
+    
+    .pricedisplay {
+      font-size: 10px;
+    }
+  }
+}
+
+.features {
+  
+  padding: 30px 60px;
+  
+  .feature {
+    a {
+      display: block;
+      position: relative;
+      font-size: 0;
+      img.overlay {
+        position: absolute;
+        top: 0;left: 0;
+      }
+    
+      .text {
+        position: absolute;
+        font-size: 17px;
+        font-family: $neutraface;
+      }
+    }
+  
+    .main {
+    
+    }
+  }
+}

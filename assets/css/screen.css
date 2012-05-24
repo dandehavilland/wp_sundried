@@ -67,7 +67,7 @@ a {
           margin-left: 17px; }
           .container .header .account_navigation ul li a {
             font-size: 11px;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-family: "Neutraface Slab Text Book";
             text-transform: uppercase;
             font-weight: bold; }
     .container .header .search_form {
@@ -76,7 +76,7 @@ a {
       right: 150px; }
       .container .header .search_form label {
         font-size: 11px;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-family: "Neutraface Slab Text Book";
         text-transform: uppercase;
         font-weight: bold; }
       .container .header .search_form input {
@@ -93,7 +93,7 @@ a {
           top: -1px;
           font-size: 11px;
           color: #fff;
-          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-family: "Neutraface Slab Text Book";
           text-transform: uppercase;
           font-weight: bold;
           background: none;
@@ -115,7 +115,7 @@ a {
           padding: 5px 22px 0;
           border-right: 1px solid white;
           text-transform: uppercase;
-          font: 12px/35px "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font: 12px/35px "Neutraface Slab Text Book";
           font-weight: bold; }
         .container .navigation ul li:last-child a {
           border-right: none; }
@@ -204,7 +204,7 @@ a {
             top: 8px; }
         .container .footer ul.menu li#blog a {
           margin-right: 81px; }
-          .container .footer ul.menu li#blog a:before {
+          .container .footer ul.menu li#blog a:after {
             position: absolute;
             right: -5px;
             top: 8px;
